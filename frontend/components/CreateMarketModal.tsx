@@ -89,8 +89,8 @@ export function CreateMarketModal() {
             try {
               const n = await new CallIt(contract as `0x${string}`).getCount();
               success("Call published", { description: `The contract now holds ${n} call${n === 1 ? "" : "s"}.` });
-            } catch {
-              error("Sent, but the contract could not be read back", { description: "Check NEXT_PUBLIC_CONTRACT_ADDRESS and the explorer." });
+            } catch (e: any) {
+              error("Sent, but the contract could not be read back", { description: String(e?.message ?? e).slice(0, 220) });
             }
             setReview(false);
             setQuestion(""); setUrl(""); setDeadline("");

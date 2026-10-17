@@ -60,7 +60,7 @@ export default function Home() {
           {!getContractAddress() && (
             <p className="brand-card p-5 text-sm">Set <code>NEXT_PUBLIC_CONTRACT_ADDRESS</code> in <code>frontend/.env.local</code> after deploying the contract.</p>
           )}
-          {error && <p className="text-sm text-destructive">Could not read markets from the contract. Check the RPC and contract address.</p>}
+          {error && <p className="text-sm text-destructive">Could not read the contract: {error.message}</p>}
           {isLoading && <p className="text-muted-foreground">Loading calls…</p>}
           {!isLoading && getContractAddress() && list.length === 0 && (
             <p className="text-muted-foreground">{tab === "open" ? "No open calls yet. Make the first one." : "Nothing has settled yet."}</p>
