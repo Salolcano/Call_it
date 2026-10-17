@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@font-face { font-family: 'Switzer'; src: url('/fonts/Switzer-Light.woff2') format('woff2'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Switzer'; src: url('/fonts/Switzer-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Switzer'; src: url('/fonts/Switzer-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+
+@custom-variant dark (&:is(.dark *));
+
+/* Warm paper, ink, and one red spark. */
+:root {
+  --background: #faf8f3;
+  --foreground: #17150f;
+  --card: #fffdf8;
+  --card-foreground: #17150f;
+  --popover: #fffdf8;
+  --popover-foreground: #17150f;
+  --primary: #17150f;
+  --primary-foreground: #faf8f3;
+  --secondary: #efeadd;
+  --secondary-foreground: #17150f;
+  --muted: #ece6d8;
+  --muted-foreground: #6f695a;
+  --accent: #e8442e;
+  --accent-foreground: #ffffff;
+  --destructive: #c4301c;
+  --border: #e4ddcc;
+  --input: #d6cdb8;
+  --ring: #e8442e;
+  --spark: #e8442e;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --font-sans: 'Switzer', ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-spark: var(--spark);
+}
+
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body { background: var(--background); color: var(--foreground); font-family: 'Switzer', ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+code { background: var(--muted); border-radius: 4px; padding: 1px 5px; font-size: 0.85em; }
+
+.hero-title { font-size: clamp(3rem, 9vw, 7rem); line-height: 0.98; letter-spacing: -0.04em; font-weight: 700; max-width: 12ch; }
+.brand-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
+.gradient-purple-pink { background: var(--foreground); color: var(--background); }
+.gradient-purple-pink:hover { background: var(--spark); }
+.field { width: 100%; border-radius: 0.5rem; border: 1px solid var(--input); background: transparent; padding: 0.5rem 0.75rem; font-size: 0.875rem; }
+.field:focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
+.btn-ink, .btn-line { display: inline-flex; align-items: center; border-radius: 9999px; padding: 0.7rem 1.4rem; font-weight: 500; transition: background 0.15s, color 0.15s; }
+.btn-ink { background: var(--foreground); color: var(--background); }
+.btn-ink:hover { background: var(--spark); }
+.btn-line { border: 1px solid var(--input); }
+.btn-line:hover { background: var(--secondary); }
+.chip { flex-shrink: 0; border-radius: 9999px; padding: 0.15rem 0.65rem; font-size: 0.75rem; font-weight: 500; border: 1px solid var(--input); }
+.chip-open { background: var(--secondary); }
+.chip-resolved { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
+.chip-void { color: var(--muted-foreground); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
